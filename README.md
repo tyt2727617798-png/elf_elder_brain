@@ -365,43 +365,29 @@ python project/modules/asr_main3.py
 
 ---
 
-# 项目展示
+# 📷 项目展示
 
-建议在 docs/images 中放置：
-
-```
-docs/images/
-
-architecture.png
-
-hardware.jpg
-
-wechat.png
-
-dashboard.png
-
-demo.gif
-```
-
-README 中直接引用：
-
-```markdown
-## 系统架构
+## 🏗 系统架构
 
 ![](docs/images/architecture.jpg)
 
-## 实物
+---
+
+## 📸 实物展示
 
 ![](docs/images/hardware.jpg)
 
-## 微信小程序
+---
+
+## 📱 微信小程序
 
 ![](docs/images/wechat.jpg)
 
-## 演示
+---
+
+## 🎥 演示
 
 ![](docs/images/demo.gif)
-```
 
 ---
 
