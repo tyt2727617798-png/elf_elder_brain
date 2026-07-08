@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="card">
+    <view class="title">📢 远程语音安抚</view>
+    <view class="tip-text">按住圆形按钮说话，松开完成录音发送；也可一键发送快捷安抚语音</view>
+  </view>
+
+  <!-- 圆形录音按钮区域 -->
+  <view class="record-wrap">
+    <view class="record-circle" bindtouchstart="startRecord" bindtouchend="stopRecord">
+      <text class="record-icon">🎤</text>
+      <text class="record-text">按住说话</text>
+    </view>
+  </view>
+
+  <!-- 快捷语音模板 -->
+  <view class="card">
+    <view class="title">快速安抚语音</view>
+    <view class="voice-btn-wrap">
+      <button class="voice-btn" bindtap="sendQuickVoice" data-text="我马上到家，你别担心">我马上到家，你别担心</button>
+      <button class="voice-btn" bindtap="sendQuickVoice" data-text="记得按时吃药，照顾好自己">按时吃药，照顾好自己</button>
+      <button class="voice-btn" bindtap="sendQuickVoice" data-text="有任何不舒服立刻打电话给我">有不舒服立刻打电话</button>
+      <button class="voice-btn" bindtap="sendQuickVoice" data-text="在家慢慢走动，不要独自出门">在家慢慢走，不要出门</button>
+    </view>
+  </view>
+</view>

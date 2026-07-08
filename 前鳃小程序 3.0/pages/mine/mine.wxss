@@ -1,0 +1,80 @@
+page {
+  padding: 40rpx 30rpx;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  font-size: 30rpx;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+input {
+  width: 90%;
+  border: 1rpx solid #ddd;
+  padding: 24rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
+
+.save-btn {
+  width: 100%;
+  padding: 26rpx 0;
+  border-radius: 12rpx;
+  border: none;
+  margin-top: 40rpx;
+  background: #4096ff;
+  color: #fff;
+  font-size: 30rpx;
+  box-sizing: border-box;
+}
+
+.tip {
+  display: block;
+  margin-top: 30rpx;
+  font-size: 26rpx;
+  color: #666;
+  text-align: center;
+}
+
+.fall-btn {
+  background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+  color: #fff;
+  border-radius: 16rpx;
+  border: none;
+  height: 110rpx;
+  line-height: 110rpx;
+  box-shadow: 0 6rpx 22rpx rgba(22, 119, 255, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+}
+.fall-btn::after {
+  border: none;
+}
+.btn-icon {
+  font-size: 36rpx;
+}
+.btn-text {
+  font-size: 36rpx;
+  font-weight: 500;
+}
+.fall-btn:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+  transition: all 0.15s ease;
+}

@@ -1,0 +1,62 @@
+<view class="container" style="padding:30rpx;padding-bottom:140rpx;">
+  <!-- 固定内置提醒 -->
+  <view class="card">
+    <view class="title">⏰ 系统固定提醒</view>
+    <view class="remind-item">
+      <text>吃药提醒：08:00</text>
+      <switch checked />
+    </view>
+    <view class="remind-item">
+      <text>喝水提醒：10:00</text>
+      <switch checked />
+    </view>
+    <view class="remind-item">
+      <text>跌倒报警：开启</text>
+      <switch checked />
+    </view>
+  </view>
+
+  <!-- 自定义提醒列表（可滚动，左滑删除） -->
+  <view class="card" wx:if="{{remindList.length > 0}}">
+    <view class="title">📝 自定义提醒</view>
+    <scroll-view scroll-y class="list-scroll">
+      <block wx:for="{{remindList}}" wx:for-index="index" wx:key="id">
+        <!-- 左滑删除容器 -->
+        <movable-area class="slide-area">
+          <movable-view 
+            class="slide-content" 
+            direction="horizontal" 
+            x="{{item.x}}" 
+            data-index="{{index}}"
+            bindtouchend="slideEnd"
+            damping="100"
+            out-of-bounds="true"
+          >
+            <view class="item-text">
+              <text>【{{item.time}}】{{item.content}}</text>
+              <switch checked="{{item.checked}}" bindchange="switchChange" data-index="{{index}}"/>
+            </view>
+          </movable-view>
+          <!-- 右侧删除按钮 -->
+          <view class="slide-delete" bindtap="delRemind" data-index="{{index}}">删除</view>
+        </movable-area>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 添加自定义提醒模块（内容输入+时间选择） -->
+  <view class="card">
+    <view class="title">➕ 新增自定义提醒</view>
+    <input 
+      placeholder="输入提醒内容" 
+      class="input" 
+      value="{{content}}" 
+      bindinput="inputChange"
+    />
+    <!-- 时间选择器，滚动选择时分 -->
+    <picker mode="time" value="{{selectTime}}" bindchange="timeChange" class="time-picker">
+      <view class="time-text">选择提醒时间：{{selectTime}}</view>
+    </picker>
+    <button class="btn" bindtap="addRemind">保存提醒</button>
+  </view>
+</view>

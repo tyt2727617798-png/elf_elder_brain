@@ -1,0 +1,39 @@
+<view class="container" style="padding:30rpx;padding-bottom:140rpx;">
+  <view class="card" style="text-align:center;padding:40rpx 20rpx;">
+    <view class="title">👤 个人中心</view>
+    <view style="margin:10rpx 0;font-size:30rpx;">老人：{{elderName}}</view>
+  </view>
+
+  <!-- 新增亲属关系输入 -->
+  <view class="form-item">
+    <text class="label">与老人关系</text>
+    <input 
+      placeholder="例如：儿子、女儿、配偶、护工" 
+      value="{{relation}}"
+      bindinput="inputRelation"
+    />
+  </view>
+
+  <!-- 新增家属手机号输入 -->
+  <view class="form-item">
+    <text class="label">联系手机号</text>
+    <input 
+      placeholder="请输入11位手机号码" 
+      value="{{phone}}"
+      bindinput="inputPhone"
+      type="number"
+      maxlength="11"
+    />
+  </view>
+
+  <!-- 保存信息按钮 -->
+  <button class="save-btn" bindtap="saveFamilyInfo">保存家属信息</button>
+
+  <view class="tip">保存后跌倒通知将发送至该手机号</view>
+
+  <!-- 跌倒提醒订阅按钮（原有代码完全保留） -->
+  <button class="fall-btn" bindtap="subscribeMessage" style="margin-top:60rpx;">
+      <text class="btn-icon">⚠️</text>
+      <text class="btn-text">开启跌倒提醒</text>
+  </button>
+</view>

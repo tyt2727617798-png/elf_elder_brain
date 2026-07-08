@@ -1,0 +1,57 @@
+<view class="container">
+  <!-- 绑定设备卡片 -->
+  <view class="card bind-card">
+    <view class="card-header">
+      <text class="card-icon">🔗</text>
+      <text class="title">绑定老人设备</text>
+    </view>
+    <view class="input-wrap">
+      <input 
+        class="device-input" 
+        placeholder="请输入华为物联网设备编号" 
+        value="{{inputDeviceId}}"
+        bindinput="onInputDeviceId"
+        maxlength="40"
+      />
+    </view>
+    <view class="btn-group">
+      <button class="btn bind-btn" bindtap="bindDevice">确认绑定设备</button>
+      <button class="btn clear-btn" bindtap="clearInput">清空输入</button>
+    </view>
+    <view class="tip-text">提示：设备编号可在华为云IoT平台设备详情页查看</view>
+  </view>
+
+  <!-- 已绑定设备信息卡片 -->
+  <view class="card info-card" wx:if="{{deviceId}}">
+    <view class="card-header">
+      <text class="card-icon">📋</text>
+      <text class="title">已绑定设备信息</text>
+    </view>
+    <view class="info-row">
+      <text class="label">设备编号</text>
+      <text class="value">{{deviceId}}</text>
+    </view>
+    <view class="info-row">
+      <text class="label">在线状态</text>
+      <text class="status online">● 在线正常</text>
+    </view>
+    <view class="info-row">
+      <text class="label">绑定时间</text>
+      <text class="value">{{bindTime}}</text>
+    </view>
+    <view class="info-row">
+      <text class="label">数据上报间隔</text>
+      <text class="value">2秒/次</text>
+    </view>
+    <view class="unbind-wrap">
+      <button class="unbind-btn" bindtap="unBindDevice">解除设备绑定</button>
+    </view>
+  </view>
+
+  <!-- 无绑定设备占位卡片 -->
+  <view class="card empty-card" wx:else>
+    <view class="empty-icon">📭</view>
+    <text class="empty-text">暂未绑定任何老人设备</text>
+    <text class="empty-desc">请在上方输入设备编号完成绑定，即可查看实时健康数据、跌倒告警</text>
+  </view>
+</view>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>小雅 · 健康仪表盘</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: #0f1923;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container { width: 90%; max-width: 800px; }
+        h1 { font-size: 2.5rem; text-align: center; margin: 1rem 0; color: #00d4aa; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .card {
+            background: #1a2c38;
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .label { font-size: 1.2rem; color: #a0b9ce; margin-bottom: 0.5rem; }
+        .value { font-size: 3rem; font-weight: bold; color: #00d4aa; }
+        .unit { font-size: 1.2rem; color: #a0b9ce; }
+        .alert { border: 2px solid #ff4d4d; }
+        .status { margin-top: 2rem; text-align: center; font-size: 1.5rem; color: #ffaa00; }
+        .advice { margin-top: 1rem; text-align: center; font-size: 1.2rem; color: #ccc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🦞 小雅 · 健康守护</h1>
+        <div class="cards">
+            <div class="card" id="bpm-card">
+                <div class="label">❤️ 心率</div>
+                <div class="value" id="bpm">--</div>
+                <div class="unit">BPM</div>
+            </div>
+            <div class="card" id="spo2-card">
+                <div class="label">🩸 血氧</div>
+                <div class="value" id="spo2">--</div>
+                <div class="unit">%</div>
+            </div>
+            <div class="card" id="steps-card">
+                <div class="label">👣 今日步数</div>
+                <div class="value" id="steps">--</div>
+                <div class="unit">步</div>
+            </div>
+            <div class="card" id="fall-card">
+                <div class="label">⚠️ 跌倒</div>
+                <div class="value" id="fall-status">安全</div>
+            </div>
+            <div class="card" id="sed-card">
+                <div class="label">🪑 久坐</div>
+                <div class="value" id="sed-status">正常</div>
+            </div>
+        </div>
+        <div class="status" id="voice-status">🎤 小雅在线，说“小雅”唤醒</div>
+        <div class="advice" id="advice-text"></div>
+    </div>
+
+    <script>
+        async function fetchData() {
+            try {
+                let hr = await fetch('/heart_status').then(r => r.json());
+                let sf = await fetch('/safety_status').then(r => r.json());
+                let voice = "🎤 小雅在线，说“小雅”唤醒";
+                try {
+                    let vs = await fetch('/voice_status').then(r => r.json());
+                    voice = vs.status || voice;
+                } catch(e) {}
+                let advice = "";
+                try {
+                    let ad = await fetch('/health_advice').then(r => r.json());
+                    advice = ad.advice || "";
+                } catch(e) {}
+
+                document.getElementById('bpm').textContent = hr.bpm.toFixed(0);
+                document.getElementById('spo2').textContent = hr.spo2.toFixed(0);
+                document.getElementById('steps').textContent = sf.steps;
+                document.getElementById('voice-status').textContent = voice;
+                document.getElementById('advice-text').textContent = advice;
+
+                let fallCard = document.getElementById('fall-card');
+                let fallVal = document.getElementById('fall-status');
+                if (sf.fallen) {
+                    fallVal.textContent = '⚠️ 跌倒!';
+                    fallCard.classList.add('alert');
+                } else {
+                    fallVal.textContent = '安全';
+                    fallCard.classList.remove('alert');
+                }
+
+                let sedCard = document.getElementById('sed-card');
+                let sedVal = document.getElementById('sed-status');
+                if (sf.sedentary) {
+                    sedVal.textContent = '⚠️ 请活动';
+                    sedCard.classList.add('alert');
+                } else {
+                    sedVal.textContent = '正常';
+                    sedCard.classList.remove('alert');
+                }
+            } catch(e) {}
+        }
+
+        setInterval(fetchData, 1000);
+        fetchData();
+    </script>
+</body>
+</html>

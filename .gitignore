@@ -1,0 +1,76 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Build
+build/
+dist/
+
+# Cache
+.cache/
+.pytest_cache/
+
+# Linux
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Temporary
+tmp/
+temp/
+
+# Audio
+*.wav
+*.pcm
+
+# Video
+*.mp4
+
+# Face Features
+*.npy
+
+# Dataset
+dataset/
+datasets/
+
+# Model Cache
+downloads/
+weights/
+
+# RKNN Cache
+*.rknn.cache
+
+# FunASR Cache
+.cache/
+
+# HuggingFace
+huggingface/
+
+# Python Bytecode
+*.pyc
+
+# Secrets
+.env

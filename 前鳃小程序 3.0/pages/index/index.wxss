@@ -1,0 +1,127 @@
+page {
+  background-color: #f5f7fa;
+  padding: 20rpx;
+  margin: 0;
+  padding-bottom: 160rpx;
+}
+.container {
+  width: 90%;
+}
+.card {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+.health-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+.health-item {
+  width: 46%;
+  font-size: 30rpx;
+  line-height: 2;
+}
+.call120 {
+  background-color: #ff3b30;
+  color: #fff;
+  font-size: 36rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  margin: 10rpx 0 30rpx;
+}
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  display: flex;
+  border-top: 1rpx solid #eee;
+}
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tab-icon {
+  font-size: 40rpx;
+  margin-bottom: 6rpx;
+}
+.tab-text {
+  font-size: 24rpx;
+  color: #666;
+}
+.btn {
+  width: 100%;
+  padding: 6rpx 0;
+  border-radius: 50rpx;
+  margin-bottom: 10rpx;
+  box-sizing: border-box;
+}
+.result-box {
+  margin-top: 30rpx;
+  padding: 20rpx;
+  background: #eee;
+  word-break: break-all;
+  font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+/* 图表画布 */
+.chart-card {
+  padding-bottom: 10rpx;
+}
+.chart-canvas {
+  width: 100%;
+  height: 320rpx;
+  background: #f8f8f8;
+  border-radius: 10rpx;
+}
+/* 左滑删除样式 */
+.slide-area {
+  position: relative;
+  width: 100%;
+  height: 90rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid #eee;
+}
+.slide-content {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  border-top-right-radius: 12rpx;
+  border-bottom-right-radius: 12rpx;
+}
+.item-text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.slide-delete {
+  position: absolute;
+  right: 10rpx;
+  top: 5rpx;
+  width: 140rpx;
+  height: 80%;
+  background: #ff3b30;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}

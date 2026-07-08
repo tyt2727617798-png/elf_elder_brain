@@ -1,0 +1,70 @@
+<view class="container">
+  <view class="card top-card">
+    <view class="title">👴 {{elderName}}</view>
+    <view>设备编号：{{deviceId}}</view>
+    <view>更新时间：{{time}}</view>
+  </view>
+
+  <!-- 健康数据 -->
+  <view class="card health-card">
+    <view class="title">❤️ 健康数据</view>
+    <view class="health-box">
+      <view class="health-item">❤️ 心率：{{heart_rate}} 次/分</view>
+      <view class="health-item">🩸 血氧：{{spo2}} %</view>
+      <view class="health-item">🌡️ 体温：{{temp}} ℃</view>
+      <view class="health-item">👣 步数：{{step}} 步</view>
+    </view>
+  </view>
+
+  <!-- wx-charts 心率折线图 -->
+  <view class="card chart-card">
+    <view class="title">📈 实时心率趋势图</view>
+    <canvas canvas-id="heartLineChart" class="chart-canvas"></canvas>
+  </view>
+
+  <!-- 跌倒监测 -->
+  <view class="card fall-card">
+    <view class="title">⚠️ 跌倒监测</view>
+    <view wx:if="{{fall == 0}}" style="font-size:32rpx;color:#009944;">老人现在一切正常</view>
+    <view wx:if="{{fall == 1}}" style="font-size:32rpx;color:#ff3b30;font-weight:bold;">老人摔倒了！</view>
+  </view>
+
+  <!-- 身边人员 -->
+  <view class="card person-card">
+    <view class="title">👥 身边人员</view>
+    <view wx:if="{{person == '儿子'}}" style="font-size:32rpx;color:#409EFF;">老人现在身边是儿子</view>
+    <view wx:elif="{{person == '老伴'}}" style="font-size:32rpx;color:#409EFF;">老人现在身边是老伴</view>
+    <view wx:else style="font-size:32rpx;color:#666;">老人现在身边是陌生人</view>
+  </view>
+
+  <!-- 实时位置地图 -->
+  <view class="card map-card">
+    <view class="title">📍 实时位置</view>
+    <map longitude="{{lng}}" latitude="{{lat}}" scale="16" style="width:100%;height:350rpx;border-radius:10rpx;"></map>
+    <view style="margin-top:15rpx;font-size:28rpx;color:#666;">位置：湖南省长沙市芙蓉区</view>
+  </view>
+
+  <!-- 一键呼叫120 -->
+  <button class="btn call120" bindtap="call120">🚨 一键呼叫120</button>
+  <view class="result-box">{{result}}</view>
+
+  <!-- 底部导航 -->
+  <view class="tab-bar">
+    <view class="tab-item" bindtap="goVoice">
+      <view class="tab-icon">📢</view>
+      <view class="tab-text">远程语音</view>
+    </view>
+    <view class="tab-item" bindtap="goRemind">
+      <view class="tab-icon">⏰</view>
+      <view class="tab-text">提醒管理</view>
+    </view>
+    <view class="tab-item" bindtap="goDevice">
+      <view class="tab-icon">🔗</view>
+      <view class="tab-text">设备管理</view>
+    </view>
+    <view class="tab-item" bindtap="goMine">
+      <view class="tab-icon">👤</view>
+      <view class="tab-text">个人中心</view>
+    </view>
+  </view>
+</view>

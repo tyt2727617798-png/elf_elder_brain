@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/device/device",
+    "pages/voice/voice",
+    "pages/remind/remind",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4096ff",
+    "navigationBarTitleText": "长者守护宝",
+    "navigationBarTextStyle": "white"
+  },
+
+  "permission": {
+    "scope.userLocation": {
+      "desc": "展示长者实时定位地图"
+    },
+    "scope.record": {
+      "desc": "远程语音对讲麦克风权限"
+    }
+  },
+  "requiredBackgroundModes": ["audio"]
+}

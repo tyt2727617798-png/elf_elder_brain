@@ -1,0 +1,73 @@
+page {
+  background-color: #f5f7fa;
+  padding: 30rpx;
+  padding-bottom: 140rpx;
+  margin: 0;
+}
+.container {
+  width: 92%;
+  box-sizing: border-box;
+}
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+.tip-text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 圆形录音按钮区域 */
+.record-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 60rpx 0;
+}
+/* 放大圆形录音按键，240rpx直径，视觉更大更醒目 */
+.record-circle {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #409EFF, #0066cc);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(64, 158, 255, 0.3);
+}
+.record-icon {
+  font-size: 72rpx;
+  color: #fff;
+  margin-bottom: 12rpx;
+}
+.record-text {
+  font-size: 32rpx;
+  color: #fff;
+}
+
+/* 快捷语音按钮：修复超出屏幕问题，自适应宽度，不会溢出右侧 */
+.voice-btn-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+.voice-btn {
+  width: calc(50% - 8rpx); /* 精准平分两栏，自动减去间隙，不会溢出 */
+  height: 72rpx;
+  border-radius: 36rpx;
+  background: #f0f7ff;
+  color: #409EFF;
+  font-size: 26rpx;
+  border: 1rpx solid #cce5ff;
+  white-space: normal; /* 文字自动换行，不会横向溢出 */
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}

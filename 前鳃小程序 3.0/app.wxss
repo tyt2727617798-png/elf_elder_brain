@@ -1,0 +1,26 @@
+page {
+  background-color: #f8f9fa;
+  font-family: "微软雅黑", sans-serif;
+}
+.container {
+  padding: 20rpx;
+}
+.card {
+  background: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+}
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+.btn {
+  background-color: #409EFF;
+  color: white;
+  border-radius: 50rpx;
+  margin: 10rpx 0;
+}
